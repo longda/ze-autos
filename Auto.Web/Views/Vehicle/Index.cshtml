@@ -1,5 +1,17 @@
-﻿@{
+﻿
+@{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+@model List<Auto.Core.Models.Vehicle>
+
+<div class="row">
+    <div class="large-12 columns"><h2>Vehicles</h2></div>
+</div>
+
+@foreach (var v in Model)
+{
+    <div class="row">
+        <div class="small-6 large-6 columns">@v.Make.Name</div><div class="small-6 large-6 columns">@v.Mpg</div>
+    </div>
+}

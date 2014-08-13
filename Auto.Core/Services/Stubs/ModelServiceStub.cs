@@ -18,7 +18,15 @@ namespace Auto.Core.Services.Stubs
 
         public Vehicle[] GetVehicles(int userId)
         {
-            throw new NotImplementedException();
+            var output = new List<Vehicle>();
+
+            output.Add(new Vehicle() { Id = 1009, Mpg = 22, Make = new Make() { Id = 56, Name = "Cadillac" } });
+            output.Add(new Vehicle() { Id = 2014, Mpg = 45, Make = new Make() { Id = 25, Name = "Toyota" } });
+            output.Add(new Vehicle() { Id = 7893, Mpg = 29, Make = new Make() { Id = 32, Name = "Mercedes" } });
+            output.Add(new Vehicle() { Id = 8931, Mpg = 31, Make = new Make() { Id = 99, Name = "Volkswagen" } });
+            output.Add(new Vehicle() { Id = 6839, Mpg = 19, Make = new Make() { Id = 77, Name = "Aston Martin" } });
+
+            return output.ToArray();
         }
 
         public bool DeleteVehicle(int vehicleId)
