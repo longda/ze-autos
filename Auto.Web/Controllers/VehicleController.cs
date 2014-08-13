@@ -8,11 +8,10 @@ namespace Auto.Web.Controllers
 {
     public class VehicleController : Controller
     {
-        //
-        // GET: /Vehicle/
         public ActionResult Index()
         {
             return View();
         }
-	}
+
+    }
 }

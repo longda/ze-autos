@@ -44,11 +44,11 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Vehicle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Concrete\ModelService.cs" />
+    <Compile Include="Services\Interfaces\IModelService.cs" />
+    <Compile Include="Services\Stubs\ModelServiceStub.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\Concrete\" />
-    <Folder Include="Services\Interfaces\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
