@@ -16,6 +16,11 @@ namespace Auto.Core.Services.Concrete
             throw new NotImplementedException();
         }
 
+        public Vehicle GetVehicle(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public Vehicle[] GetVehicles(int userId)
         {
             throw new NotImplementedException();

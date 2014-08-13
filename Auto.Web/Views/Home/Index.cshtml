@@ -1,4 +1,5 @@
-﻿@{
+﻿@using Auto.Web.Core
+@{
     ViewBag.Title = "Home";
 }
 
@@ -6,6 +7,8 @@
     <div class="large-12 columns"><a href="/vehicle">Vehicles</a></div>
 </div>
 
+@if (Helper.CurrentUser.IsAdmin)
+{
 <div class="row">
     <div class="large-12 columns"><a href="/make">Makes</a></div>
 </div>
@@ -13,3 +16,4 @@
 <div class="row">
     <div class="large-12 columns"><a href="/report">Reports</a></div>
 </div>
+}

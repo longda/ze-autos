@@ -19,6 +19,7 @@ namespace Auto.Core.Models
         // if not again at the database tier.
         public string Password { get; set; }
         public UserType UserType { get; set; }
+        public bool IsAdmin { get { return UserType == UserType.Admin; } }
 
         public User()
         {

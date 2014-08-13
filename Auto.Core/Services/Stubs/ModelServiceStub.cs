@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Auto.Core.Enums;
 using Auto.Core.Models;
 using Auto.Core.Services.Interfaces;
 
@@ -12,6 +13,11 @@ namespace Auto.Core.Services.Stubs
     public class ModelServiceStub : IModelService
     {
         public Vehicle SaveVehicle(Vehicle input)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Vehicle GetVehicle(int id)
         {
             throw new NotImplementedException();
         }
@@ -51,7 +57,14 @@ namespace Auto.Core.Services.Stubs
 
         public User GetUser(int id)
         {
-            throw new NotImplementedException();
+            return new User() 
+            { 
+                Id = 23, 
+                Name = "Standard Guy", 
+                Password = "sunshine", 
+                Username = "std", 
+                UserType = UserType.Standard 
+            };
         }
     }
 }

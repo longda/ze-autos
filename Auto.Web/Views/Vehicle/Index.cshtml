@@ -1,17 +1,22 @@
-﻿
+﻿@using Auto.Web.Core
+@model List<Auto.Core.Models.Vehicle>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Vehicles";
 }
 
-@model List<Auto.Core.Models.Vehicle>
-
 <div class="row">
-    <div class="large-12 columns"><h2>Vehicles</h2></div>
+    <div class="small-12 large-12 columns"><h2>Vehicles</h2></div>
 </div>
 
 @foreach (var v in Model)
 {
     <div class="row">
-        <div class="small-6 large-6 columns">@v.Make.Name</div><div class="small-6 large-6 columns">@v.Mpg</div>
+        <div class="small-6 large-6 columns">@v.Make.Name</div>
+        <div class="small-5 large-5 columns">@v.Mpg</div>
+        <div class="small-1 large-1 columns"><a href="#" class="button expand btn-del btn-del-vehicle" data-id="@v.Id">-del</a></div>
     </div>
 }
+
+<div class="row">
+    <div class="small-12 large-12 columns"><a href="#" class="button large btn-add btn-add-vehicle" data-id="@Helper.CurrentUser.Id">+add</a></div>
+</div>

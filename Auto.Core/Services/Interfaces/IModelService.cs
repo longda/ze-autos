@@ -11,6 +11,7 @@ namespace Auto.Core.Services.Interfaces
     public interface IModelService
     {
         Vehicle SaveVehicle(Vehicle input);
+        Vehicle GetVehicle(int id);
         Vehicle[] GetVehicles(int userId);
         bool DeleteVehicle(int vehicleId);
 

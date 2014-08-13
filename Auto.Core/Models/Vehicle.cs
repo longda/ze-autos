@@ -11,6 +11,7 @@ namespace Auto.Core.Models
         public int Id { get; set; }
         public Make Make { get; set; }
         public int Mpg { get; set; }
+        public int UserId { get; set; }
 
         public Vehicle()
         {

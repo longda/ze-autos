@@ -144,6 +144,7 @@
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\VehicleController.cs" />
     <Compile Include="Core\BaseController.cs" />
+    <Compile Include="Core\Helper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -204,10 +205,24 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="css\foundation.css" />
+    <Content Include="css\foundation.min.css" />
+    <Content Include="css\normalize.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="img\.gitkeep" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="humans.txt" />
+    <Content Include="js\auto.js" />
+    <Content Include="js\foundation.min.js" />
+    <Content Include="js\foundation\foundation.interchange.js" />
+    <Content Include="js\foundation\foundation.js" />
+    <Content Include="js\foundation\foundation.reveal.js" />
+    <Content Include="js\vendor\fastclick.js" />
+    <Content Include="js\vendor\jquery.cookie.js" />
+    <Content Include="js\vendor\jquery.js" />
+    <Content Include="js\vendor\modernizr.js" />
+    <Content Include="js\vendor\placeholder.js" />
     <Content Include="robots.txt" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
