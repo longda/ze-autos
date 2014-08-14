@@ -43,7 +43,12 @@ namespace Auto.Core.Services.Stubs
 
         public Make SaveMake(Make input)
         {
-            throw new NotImplementedException();
+            return input;
+        }
+
+        public Make GetMake(int id)
+        {
+            return new Make() { Id = 56, Name = "Cadillac" };
         }
 
         public Make[] GetMakes()

@@ -36,6 +36,11 @@ namespace Auto.Core.Services.Concrete
             throw new NotImplementedException();
         }
 
+        public Make GetMake(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public Make[] GetMakes()
         {
             throw new NotImplementedException();

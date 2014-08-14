@@ -21,7 +21,27 @@ namespace Auto.Web.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            var m = modelService.GetMakes().ToList();
+            return View(m);
+        }
+
+        [HttpPost]
+        public ActionResult Save(Make input)
+        {
+            return Json(modelService.SaveMake(input));
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int id)
+        {
+            var result = false;
+            var m = modelService.GetMake(id);
+            if (m != null)
+            {
+                result = modelService.DeleteVehicle(id);
+            }
+
+            return Json(new { success = result });
         }
 
         public ActionResult MakeDropDown(int? selected)
