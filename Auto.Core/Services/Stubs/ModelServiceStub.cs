@@ -14,7 +14,8 @@ namespace Auto.Core.Services.Stubs
     {
         public Vehicle SaveVehicle(Vehicle input)
         {
-            throw new NotImplementedException();
+            input.Make.Name = "BMW";
+            return input;
         }
 
         public Vehicle GetVehicle(int id)
@@ -47,7 +48,15 @@ namespace Auto.Core.Services.Stubs
 
         public Make[] GetMakes()
         {
-            throw new NotImplementedException();
+            var output = new List<Make>();
+
+            output.Add(new Make() { Id = 56, Name = "Cadillac" });
+            output.Add(new Make() { Id = 25, Name = "Toyota" });
+            output.Add(new Make() { Id = 32, Name = "Mercedes" });
+            output.Add(new Make() { Id = 99, Name = "Volkswagen" });
+            output.Add(new Make() { Id = 77, Name = "Aston Martin" });
+
+            return output.ToArray();
         }
 
         public bool DeleteMakes(int makeId)

@@ -1,5 +1,5 @@
 ﻿@using Auto.Web.Core
-@model List<Auto.Core.Models.Vehicle>
+@model Auto.Web.Models.VehicleViewModel
 @{
     ViewBag.Title = "Vehicles";
 }
@@ -8,15 +8,41 @@
     <div class="small-12 large-12 columns"><h2>Vehicles</h2></div>
 </div>
 
-@foreach (var v in Model)
+<div class="row">
+    <div class="small-6 large-6 columns"><h4>Make</h4></div>
+    <div class="small-5 large-5 columns"><h4>Mpg</h4></div>
+    <div class="small-1 large-1 columns"></div> 
+</div>
+
+<div id="vehicles">
+@foreach (var v in Model.Vehicles)
 {
-    <div class="row">
-        <div class="small-6 large-6 columns">@v.Make.Name</div>
-        <div class="small-5 large-5 columns">@v.Mpg</div>
-        <div class="small-1 large-1 columns"><a href="#" class="button expand btn-del btn-del-vehicle" data-id="@v.Id">-del</a></div>
+    <div class="row" data-id="@v.Id">
+        <div class="small-6 large-6 columns">
+            @Html.Partial("_MakeDropDown", Model.Makes, new ViewDataDictionary { { "selected", v.Make.Id } }) 
+        </div>
+        <div class="small-5 large-5 columns">
+            <input class="mpg auto-save-vehicle" type="number" value="@v.Mpg" />
+        </div>
+        <div class="small-1 large-1 columns"><a href="#" class="button expand btn-del btn-del-vehicle" data-id="@v.Id" data-reveal-id="confirm-delete">-del</a></div>
     </div>
 }
+</div>
 
 <div class="row">
     <div class="small-12 large-12 columns"><a href="#" class="button large btn-add btn-add-vehicle" data-id="@Helper.CurrentUser.Id">+add</a></div>
 </div>
+
+<div id="confirm-delete" class="reveal-modal tiny" data-reveal>
+    <h2>Are you sure you'd like to delete this vehicle?</h2>
+    <a href="#" class="button alert">Delete</a>
+    <a href="#" class="button reveal-close">Cancel</a>
+</div>
+
+<script id="vehicle_row" type="text/html">
+    <div class="row">
+        <div class="small-6 large-6 columns">{{Make.Name}}</div>
+        <div class="small-5 large-5 columns"><input id="mpg_{{Id}}" type="number" value="{{Mpg}}" /></div>
+        <div class="small-1 large-1 columns"><a href="#" class="button expand btn-del btn-del-vehicle" data-id="{{Make.Id}}">-del</a></div>
+    </div>
+</script>

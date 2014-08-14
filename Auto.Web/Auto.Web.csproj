@@ -148,6 +148,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\VehicleViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -219,6 +220,7 @@
     <Content Include="js\foundation\foundation.js" />
     <Content Include="js\foundation\foundation.reveal.js" />
     <Content Include="js\vendor\fastclick.js" />
+    <Content Include="js\vendor\icanhaz.min.js" />
     <Content Include="js\vendor\jquery.cookie.js" />
     <Content Include="js\vendor\jquery.js" />
     <Content Include="js\vendor\modernizr.js" />
@@ -254,10 +256,10 @@
     <Content Include="Views\Make\Index.cshtml" />
     <Content Include="Views\Report\Index.cshtml" />
     <Content Include="Views\Vehicle\Index.cshtml" />
+    <Content Include="Views\Shared\_MakeDropDown.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

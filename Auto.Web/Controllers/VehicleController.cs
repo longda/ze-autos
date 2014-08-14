@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using Auto.Core.Models;
 using Auto.Core.Services.Interfaces;
 using Auto.Web.Core;
+using Auto.Web.Models;
 
 namespace Auto.Web.Controllers
 {
@@ -21,8 +22,11 @@ namespace Auto.Web.Controllers
 
         public ActionResult Index()
         {
-            var m = modelService.GetVehicles(Helper.CurrentUser.Id).ToList();
-            return View(m);
+            var vm = new VehicleViewModel();
+            vm.Vehicles = modelService.GetVehicles(Helper.CurrentUser.Id).ToList();
+            vm.Makes = modelService.GetMakes().ToList();
+            
+            return View(vm);
         }
 
         [HttpPost]
