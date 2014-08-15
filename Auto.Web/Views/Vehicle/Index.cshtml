@@ -17,14 +17,14 @@
 <div id="vehicles">
 @foreach (var v in Model.Vehicles)
 {
-    <div class="row" data-id="@v.Id">
+    <div class="row" id="@v.Id">
         <div class="small-6 large-6 columns">
             @Html.Partial("_MakeDropDown", Model.Makes, new ViewDataDictionary { { "selected", v.Make.Id } }) 
         </div>
         <div class="small-5 large-5 columns">
             <input class="mpg auto-save-vehicle" type="number" value="@v.Mpg" />
         </div>
-        <div class="small-1 large-1 columns"><a href="#" class="button expand btn-del btn-del-vehicle" data-id="@v.Id" data-reveal-id="confirm-delete">-del</a></div>
+        <div class="small-1 large-1 columns"><a href="#" class="button expand btn-del btn-del-trigger" data-id="@v.Id" data-reveal-id="confirm-delete">-del</a></div>
     </div>
 }
 </div>
@@ -34,8 +34,9 @@
 </div>
 
 <div id="confirm-delete" class="reveal-modal tiny" data-reveal>
+    <input type="hidden" id="hid-delete-id" />
     <h2>Are you sure you'd like to delete this vehicle?</h2>
-    <a href="#" class="button alert">Delete</a>
+    <a href="#" class="button btn-del-vehicle alert">Delete</a>
     <a href="#" class="button reveal-close">Cancel</a>
 </div>
 

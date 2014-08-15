@@ -38,7 +38,7 @@ namespace Auto.Web.Controllers
             var m = modelService.GetMake(id);
             if (m != null)
             {
-                result = modelService.DeleteVehicle(id);
+                result = modelService.DeleteMake(id);
             }
 
             return Json(new { success = result });

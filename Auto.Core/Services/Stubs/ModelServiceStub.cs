@@ -20,7 +20,7 @@ namespace Auto.Core.Services.Stubs
 
         public Vehicle GetVehicle(int id)
         {
-            throw new NotImplementedException();
+            return new Vehicle() { Id = 1009, Mpg = 22, Make = new Make() { Id = 56, Name = "Cadillac" } };
         }
 
         public Vehicle[] GetVehicles(int userId)
@@ -38,7 +38,7 @@ namespace Auto.Core.Services.Stubs
 
         public bool DeleteVehicle(int vehicleId)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         public Make SaveMake(Make input)
@@ -64,9 +64,9 @@ namespace Auto.Core.Services.Stubs
             return output.ToArray();
         }
 
-        public bool DeleteMakes(int makeId)
+        public bool DeleteMake(int makeId)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         public User GetUser(int id)

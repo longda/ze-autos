@@ -24,7 +24,25 @@ auto.vehicles = {
         });
 
         $(".btn-del-vehicle").click(function () {
-            console.log("del vehicle button clicked, id: ", $(this).data("id"));
+            console.log("del vehicle button clicked, id: ", $("#hid-delete-id").val());
+            var data = {
+                'Id': $("#hid-delete-id").val()
+            };
+
+            $.ajax({
+                type: 'post',
+                url: 'vehicle/delete',
+                data: data,
+                datatype: 'json',
+                traditional: true,
+                success: function (response) {
+                    auto.global.closeModal();
+                    $("#" + data.Id).fadeOut(500);
+                    $("#hid-delete-id").val("");
+                },
+                error: function (response) {
+                }
+            });
 
         });
 
@@ -73,8 +91,24 @@ auto.makes = {
         });
 
         $(".btn-del-make").click(function () {
-            console.log("del make button clicked, id: ", $(this).data("id"));
+            var data = {
+                'Id': $("#hid-delete-id").val()
+            };
 
+            $.ajax({
+                type: 'post',
+                url: 'make/delete',
+                data: data,
+                datatype: 'json',
+                traditional: true,
+                success: function (response) {
+                    auto.global.closeModal();
+                    $("#" + data.Id).fadeOut(500);
+                    $("#hid-delete-id").val("");
+                },
+                error: function (response) {
+                }
+            });
         });
 
         $(".auto-save-make").change(function () {
@@ -95,17 +129,26 @@ auto.makes = {
                 }
             });
         });
-
-        //$(".reveal-close").click(function () {
-        //    $('#confirm-delete').foundation('reveal', 'close');
-        //});
     }
 };
 
 auto.global = {
+    closeModal: function(){
+        $('#confirm-delete').foundation('reveal', 'close');
+    },
+
+    openModal: function () {
+        $('#confirm-delete').foundation('reveal', 'open');
+    },
+
     init: function () {
         $(".reveal-close").click(function () {
-            $('#confirm-delete').foundation('reveal', 'close');
+            auto.global.closeModal();
+        });
+
+        $(".btn-del-trigger").click(function () {
+            auto.global.openModal();
+            $("#hid-delete-id").val($(this).data("id"));
         });
     }
 };

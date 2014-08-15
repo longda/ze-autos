@@ -46,7 +46,7 @@ namespace Auto.Core.Services.Concrete
             throw new NotImplementedException();
         }
 
-        public bool DeleteMakes(int makeId)
+        public bool DeleteMake(int makeId)
         {
             throw new NotImplementedException();
         }

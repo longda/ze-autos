@@ -18,7 +18,7 @@ namespace Auto.Core.Services.Interfaces
         Make SaveMake(Make input);
         Make GetMake(int id);
         Make[] GetMakes();
-        bool DeleteMakes(int makeId);
+        bool DeleteMake(int makeId);
 
         User GetUser(int id);
     }
