@@ -1,6 +1,6 @@
 ﻿@model List<Auto.Core.Models.Make>
 
-<select>
+<select class="make-drop-down">
 @foreach (var m in Model)
 {
     <option value="@m.Id" @(ViewBag.Selected == m.Id ? "selected" : "")>@m.Name</option>

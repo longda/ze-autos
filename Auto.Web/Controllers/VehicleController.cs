@@ -40,7 +40,8 @@ namespace Auto.Web.Controllers
                 var v = modelService.GetVehicle(input.Id);
                 if (v.UserId == CurrentUser.Id)
                 {
-                    modelService.SaveVehicle(input);
+                    v.Mpg = input.Mpg;
+                    modelService.SaveVehicle(v);
                 }
             }
             else

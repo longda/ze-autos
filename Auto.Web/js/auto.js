@@ -4,9 +4,9 @@ auto.vehicles = {
     init: function () {
         $(".btn-add-vehicle").click(function () {
             var data = {
-                'Id': 1,
-                'Make.Id': 2,
-                'Mpg': 51
+                'Id': $("#hid-user-id").val(),
+                'Make.Id': $("#add-vehicle .make-drop-down").val(),
+                'Mpg': 0
             };
 
             $.ajax({
@@ -16,6 +16,7 @@ auto.vehicles = {
                 datatype: 'json',
                 traditional: true,
                 success: function (response) {
+                    $('#add-vehicle').foundation('reveal', 'close');
                     $(ich.vehicle_row(response, true)).hide().appendTo("#vehicles").fadeIn(1000);
                 },
                 error: function (response) {
@@ -24,7 +25,6 @@ auto.vehicles = {
         });
 
         $(".btn-del-vehicle").click(function () {
-            console.log("del vehicle button clicked, id: ", $("#hid-delete-id").val());
             var data = {
                 'Id': $("#hid-delete-id").val()
             };
