@@ -10,7 +10,7 @@ using Auto.Web.Core;
 
 namespace Auto.Web.Controllers
 {
-    public class MakeController : Controller
+    public class MakeController : BaseController
     {
         private readonly IModelService modelService;
 
@@ -21,6 +21,7 @@ namespace Auto.Web.Controllers
 
         public ActionResult Index()
         {
+            if (CurrentUser == null || !CurrentUser.IsAdmin) return new RedirectResult("/");
             var m = modelService.GetMakes().ToList();
             return View(m);
         }
@@ -28,12 +29,16 @@ namespace Auto.Web.Controllers
         [HttpPost]
         public ActionResult Save(Make input)
         {
+            // Probably better to do this with some sort of action filter system.
+            // Also would be beter to be more restful, return proper error codes, etc.
+            if (CurrentUser == null || !CurrentUser.IsAdmin) return new RedirectResult("/");
             return Json(modelService.SaveMake(input));
         }
 
         [HttpPost]
         public ActionResult Delete(int id)
         {
+            if (CurrentUser == null || !CurrentUser.IsAdmin) return new RedirectResult("/");
             var result = false;
             var m = modelService.GetMake(id);
             if (m != null)

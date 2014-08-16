@@ -12,6 +12,7 @@ namespace Auto.Web.Controllers
     {
         public ActionResult Index()
         {
+            if (CurrentUser == null) return new RedirectResult("/login");
             return View();
         }
 

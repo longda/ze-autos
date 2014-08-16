@@ -3,17 +3,20 @@
     ViewBag.Title = "Home";
 }
 
+<div class="row mid-gap"></div>
 <div class="row">
-    <div class="large-12 columns"><a href="/vehicle">Vehicles</a></div>
+    <div class="large-12 columns"><a class="button expand" href="/vehicle">Vehicles</a></div>
 </div>
 
 @if (Helper.CurrentUser.IsAdmin)
 {
 <div class="row">
-    <div class="large-12 columns"><a href="/make">Makes</a></div>
+    <div class="large-12 columns"><a class="button expand" href="/make">Makes</a></div>
 </div>
+    
+ 
 
 <div class="row">
-    <div class="large-12 columns"><a href="/report">Reports</a></div>
+    <div class="large-12 columns"><a class="button expand" href="/report">Reports</a></div>
 </div>
 }

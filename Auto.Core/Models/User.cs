@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 using Auto.Core.Enums;
 
 namespace Auto.Core.Models
@@ -25,6 +26,4 @@ namespace Auto.Core.Models
         {
         }
     }
-
-
 }

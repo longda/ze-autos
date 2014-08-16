@@ -1,14 +1,21 @@
-﻿<!doctype html>
+﻿@using Auto.Web.Core
+<!doctype html>
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewBag.Title</title>
     <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="css/auto.css" />
     <script src="js/vendor/modernizr.js"></script>
   </head>
   <body>
-    
+    @*
+    <div class="row">
+        <div class="small-12 large-12 columns">You are logged in as: @(Helper.CurrentUser != null ? string.Format("{0} [{1}]", Helper.CurrentUser.Name, Helper.CurrentUser.IsAdmin ? "Admin" : "Not Admin") : "<unknown>"). To switch users, <a href="/login">login</a>.</div>
+    </div>
+    *@
+
     @RenderBody()
 
     <script src="js/vendor/jquery.js"></script>

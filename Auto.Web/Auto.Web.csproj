@@ -140,10 +140,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MakeController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\VehicleController.cs" />
     <Compile Include="Core\BaseController.cs" />
+    <Compile Include="Core\Extensions.cs" />
     <Compile Include="Core\Helper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -206,6 +208,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="css\auto.css" />
     <Content Include="css\foundation.css" />
     <Content Include="css\foundation.min.css" />
     <Content Include="css\normalize.css" />
@@ -257,6 +260,7 @@
     <Content Include="Views\Report\Index.cshtml" />
     <Content Include="Views\Vehicle\Index.cshtml" />
     <Content Include="Views\Shared\_MakeDropDown.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

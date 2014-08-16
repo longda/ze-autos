@@ -68,11 +68,13 @@ namespace Auto.Web.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<IModelService>().To<ModelService>().InRequestScope();
+            kernel.Bind<IAuthenticationService>().To<AuthenticationServiceStub>().InRequestScope();
         }
 
         private static void RegisterStubServices(IKernel kernel)
         {
             kernel.Bind<IModelService>().To<ModelServiceStub>().InRequestScope();
+            kernel.Bind<IAuthenticationService>().To<AuthenticationServiceStub>().InRequestScope();
         }
     }
 }

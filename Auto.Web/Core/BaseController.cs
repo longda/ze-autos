@@ -11,6 +11,17 @@ namespace Auto.Web.Core
 {
     public class BaseController : Controller
     {
-
+        //  Again, not the best way to do this... might try to use action filters.
+        public User CurrentUser
+        {
+            get
+            {
+                return Helper.CurrentUser;
+            }
+            set
+            {
+                Helper.CurrentUser = value;
+            }
+        }
     }
 }

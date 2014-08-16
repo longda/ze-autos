@@ -12,6 +12,8 @@ namespace Auto.Core.Services.Stubs
 {
     public class AuthenticationServiceStub : IAuthenticationService
     {
+        // Obviously, don't do this in production.  I recommend using an identity provider
+        // of some sort with OAuth for general purpose logins (see StackOverflow's login).
         public User Login(string username, string password)
         {
             if (username == "auto")
@@ -22,7 +24,7 @@ namespace Auto.Core.Services.Stubs
                     Name = "Admin Dude",
                     Password = "rosebud", 
                     Username = "auto", 
-                    UserType = UserType.Standard 
+                    UserType = UserType.Admin 
                 };
             }
 

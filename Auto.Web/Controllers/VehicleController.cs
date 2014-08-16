@@ -11,7 +11,7 @@ using Auto.Web.Models;
 
 namespace Auto.Web.Controllers
 {
-    public class VehicleController : Controller
+    public class VehicleController : BaseController
     {
         private readonly IModelService modelService;
 
@@ -22,8 +22,9 @@ namespace Auto.Web.Controllers
 
         public ActionResult Index()
         {
+            if (CurrentUser == null) return new RedirectResult("~/");
             var vm = new VehicleViewModel();
-            vm.Vehicles = modelService.GetVehicles(Helper.CurrentUser.Id).ToList();
+            vm.Vehicles = modelService.GetVehicles(CurrentUser.Id).ToList();
             vm.Makes = modelService.GetMakes().ToList();
             
             return View(vm);
@@ -32,16 +33,33 @@ namespace Auto.Web.Controllers
         [HttpPost]
         public ActionResult Save(Vehicle input)
         {
-            input.UserId = Helper.CurrentUser.Id;
+            if (CurrentUser == null) return new RedirectResult("~/");
+
+            if (input.Id != 0)
+            {
+                var v = modelService.GetVehicle(input.Id);
+                if (v.UserId == CurrentUser.Id)
+                {
+                    modelService.SaveVehicle(input);
+                }
+            }
+            else
+            {
+                input.UserId = CurrentUser.Id;
+                modelService.SaveVehicle(input);
+            }
+
             return Json(modelService.SaveVehicle(input));
         }
 
         [HttpPost]
         public ActionResult Delete(int id)
         {
+            if (CurrentUser == null) return new RedirectResult("~/");
+
             var result = false;
             var v = modelService.GetVehicle(id);
-            if (v != null && v.UserId == Helper.CurrentUser.Id)
+            if (v != null && v.UserId == CurrentUser.Id)
             {
                 result = modelService.DeleteVehicle(id);
             }

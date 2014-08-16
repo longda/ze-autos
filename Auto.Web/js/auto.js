@@ -132,6 +132,41 @@ auto.makes = {
     }
 };
 
+auto.login = {
+    loginUser: function () {
+        var data = {
+            'username': $("#username").val(),
+            'password': $("#password").val()
+        };
+
+        // TODO: please, please, please use https for this.
+        $.ajax({
+            type: 'post',
+            url: 'login/index',
+            data: data,
+            datatype: 'json',
+            traditional: true,
+            success: function (response) {
+                window.location.href = response.url;
+            },
+            error: function (response) {
+            }
+        });
+    },
+
+    init: function () {
+        $(".btn-login").click(function () {
+            auto.login.loginUser();
+        });
+
+        $(".input-enter").keyup(function (event) {
+            if (event.keyCode == 13) {
+                auto.login.loginUser();
+            }
+        });
+    },
+};
+
 auto.global = {
     closeModal: function(){
         $('#confirm-delete').foundation('reveal', 'close');
@@ -156,5 +191,6 @@ auto.global = {
 auto.init = function () {
     auto.vehicles.init();
     auto.makes.init();
+    auto.login.init();
     auto.global.init();
 };

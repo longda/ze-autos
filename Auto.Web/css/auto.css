@@ -1,0 +1,12 @@
+﻿.input-label {
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: block;
+    font-weight: normal;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+.mid-gap {
+    height: 25px;
+}
