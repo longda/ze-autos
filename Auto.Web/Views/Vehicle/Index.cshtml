@@ -25,7 +25,7 @@
             @v.Make.Name
         </div>
         <div class="small-5 large-5 columns">
-            <input class="mpg auto-save-vehicle" type="number" value="@v.Mpg" />
+            <input class="mpg auto-save-vehicle" type="number" value="@v.Mpg" data-id="@v.Id" />
         </div>
         <div class="small-1 large-1 columns"><a href="#" class="button expand btn-del btn-del-trigger" data-id="@v.Id" data-reveal-id="confirm-delete">-del</a></div>
     </div>
@@ -53,9 +53,9 @@
 </div>
 
 <script id="vehicle_row" type="text/html">
-    <div class="row">
+    <div class="row" id="{{Id}}">
         <div class="small-6 large-6 columns">{{Make.Name}}</div>
-        <div class="small-5 large-5 columns"><input id="mpg_{{Id}}" type="number" value="{{Mpg}}" /></div>
-        <div class="small-1 large-1 columns"><a href="#" class="button expand btn-del btn-del-vehicle" data-id="{{Make.Id}}" data-reveal-id="confirm-delete">-del</a></div>
+        <div class="small-5 large-5 columns"><input class="mpg auto-save-vehicle" type="number" value="{{Mpg}}" data-id="{{Id}}" /></div>
+        <div class="small-1 large-1 columns"><a href="#" class="button expand btn-del btn-del-trigger" data-id="{{Make.Id}}" data-reveal-id="confirm-delete">-del</a></div>
     </div>
 </script>

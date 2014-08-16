@@ -18,7 +18,7 @@
 @foreach (var m in Model)
 {
     <div class="row" id="@m.Id" data-id="@m.Id">
-        <div class="small-6 large-6 columns">@m.Name</div>
+        <div class="small-6 large-6 columns"><input class="large-12 make-name auto-save-make" type="text" data-id="@m.Id" value="@m.Name" /></div>
         <div class="small-5 large-5 columns"></div>
         <div class="small-1 large-1 columns"><a href="#" class="button expand btn-del btn-del-trigger" data-id="@m.Id" data-reveal-id="confirm-delete">-del</a></div>
     </div>
@@ -38,8 +38,8 @@
 
 <script id="make_row" type="text/html">
     <div class="row" id="{{Id}}" data-id="{{Id}}">
-        <div class="small-6 large-6 columns">{{Name}}</div>
+        <div class="small-6 large-6 columns"><input class="large-12 make-name auto-save-make" type="text" value="{{Name}}" /></div>
         <div class="small-5 large-5 columns"></div>
-        <div class="small-1 large-1 columns"><a href="#" class="button expand btn-del btn-del-make" data-id="{{Id}}">-del</a></div>
+        <div class="small-1 large-1 columns"><a href="#" class="button expand btn-del btn-del-trigger" data-id="{{Id}}">-del</a></div>
     </div>
 </script>

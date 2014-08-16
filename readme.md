@@ -17,9 +17,13 @@ The candidate is responsible for designing the data model and choosing an approp
 
 ## Considerations:
 
-* Add logging
-* Add exception handling
-* Add validation, client-side and server-side
-* Add a real auth system
-* See various comments throughout code regarding possibly better ways to do things (such as action filters for auth)
-* Why it's bad to expose raw ids in the dom, api, etc.
+* Add logging.
+* Add exception handling.
+* Add validation, client-side and server-side.
+* Add a real auth system.
+* See various comments throughout code regarding possibly better ways to do things (such as action filters for auth).
+* Why it's usually a bad idea to expose raw ids in the dom, api, etc.
+* So yeah, pure (jquery-pure) ajax... probably would be better to use Angular JS for this.  Purists might say to go with Vanilla JS.  *shrugs*
+* Probably could use a pass just do double check that nothing extraneous has been left in, data-ids and such.
+* How chatty the saves are with the server.
+* Templating and the joys of maintaining something in multiple places.

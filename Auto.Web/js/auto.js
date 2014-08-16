@@ -2,7 +2,7 @@
 
 auto.vehicles = {
     init: function () {
-        $(".btn-add-vehicle").click(function () {
+        $(".btn-add-vehicle").on("click", function () {
             var data = {
                 'Id': $("#hid-user-id").val(),
                 'Make.Id': $("#add-vehicle .make-drop-down").val(),
@@ -24,7 +24,7 @@ auto.vehicles = {
             });
         });
 
-        $(".btn-del-vehicle").click(function () {
+        $(".btn-del-vehicle").on("click", function () {
             var data = {
                 'Id': $("#hid-delete-id").val()
             };
@@ -46,12 +46,13 @@ auto.vehicles = {
 
         });
 
-        $(".auto-save-vehicle").change(function () {
+        $(".auto-save-vehicle").on("change keyup paste input",function () {
             var data = {
-                'Id': 1,
-                'Make.Id': 2,
-                'Mpg': 51
+                'Id': $(this).data("id"),
+                'Mpg': $(this).val()
             };
+
+            console.log("data: " + data);
 
             $.ajax({
                 type: 'post',
@@ -70,10 +71,10 @@ auto.vehicles = {
 
 auto.makes = {
     init: function () {
-        $(".btn-add-make").click(function () {
+        $(".btn-add-make").on("click", function () {
             var data = {
-                'Id': 1,
-                'Name': "Maserati"
+                'Id': 0,
+                'Name': ""
             };
 
             $.ajax({
@@ -84,13 +85,14 @@ auto.makes = {
                 traditional: true,
                 success: function (response) {
                     $(ich.make_row(response, true)).hide().appendTo("#makes").fadeIn(1000);
+                    $("#" + response.Id + " .make-name").focus();
                 },
                 error: function (response) {
                 }
             });
         });
 
-        $(".btn-del-make").click(function () {
+        $(".btn-del-make").on("click", function () {
             var data = {
                 'Id': $("#hid-delete-id").val()
             };
@@ -111,10 +113,10 @@ auto.makes = {
             });
         });
 
-        $(".auto-save-make").change(function () {
+        $(".auto-save-make").on("change keyup paste input", function () {
             var data = {
-                'Id': 1,
-                'Name': "Maserati"
+                'Id': $(this).data("id"),
+                'Name': $(this).val()
             };
 
             $.ajax({
@@ -155,7 +157,7 @@ auto.login = {
     },
 
     init: function () {
-        $(".btn-login").click(function () {
+        $(".btn-login").on("click", function () {
             auto.login.loginUser();
         });
 
@@ -177,11 +179,11 @@ auto.global = {
     },
 
     init: function () {
-        $(".reveal-close").click(function () {
+        $(".reveal-close").on("click", function () {
             auto.global.closeModal();
         });
 
-        $(".btn-del-trigger").click(function () {
+        $(".btn-del-trigger").on("click", function () {
             auto.global.openModal();
             $("#hid-delete-id").val($(this).data("id"));
         });
