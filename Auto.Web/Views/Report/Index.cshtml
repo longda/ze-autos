@@ -1,14 +1,25 @@
-﻿@{
+﻿@model Auto.Core.Models.MileageReportItem[]
+@{
     ViewBag.Title = "Reports";
 }
 
 <div class="row">
-    <div class="small-12 large-12 columns"><h2>MPG Report</h2></div>
+    <div class="small-12 large-12 columns"><h2>Mileage Report</h2></div>
 </div>
 
 <div class="row">
-    <div class="small-3 large-3 columns">Make</div>
-    <div class="small-3 large-3 columns">Min MPG</div>
-    <div class="small-3 large-3 columns">Max MPG</div> 
-    <div class="small-3 large-3 columns">Ave MPG</div> 
+    <div class="small-3 large-3 columns"><h5>Make</h5></div>
+    <div class="small-3 large-3 columns"><h5>Min MPG</h5></div>
+    <div class="small-3 large-3 columns"><h5>Max MPG</h5></div> 
+    <div class="small-3 large-3 columns"><h5>Ave MPG</h5></div> 
 </div>
+
+@foreach (var row in Model)
+{
+<div class="row">
+    <div class="small-3 large-3 columns">@row.Make</div>
+    <div class="small-3 large-3 columns">@row.MinMpg</div>
+    <div class="small-3 large-3 columns">@row.MaxMpg</div> 
+    <div class="small-3 large-3 columns">@row.AveMpg</div> 
+</div>
+}

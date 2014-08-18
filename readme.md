@@ -27,3 +27,11 @@ The candidate is responsible for designing the data model and choosing an approp
 * Probably could use a pass just do double check that nothing extraneous has been left in, data-ids and such.
 * How chatty the saves are with the server.
 * Templating and the joys of maintaining something in multiple places.
+* Pagination.
+* More ui feedback like progress bars and throbbers when communicating with the server.
+* More unit tests.
+* Cascading delete shenanigans.
+* Sorting?
+
+
+:feelsgood:

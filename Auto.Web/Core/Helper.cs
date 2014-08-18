@@ -17,7 +17,7 @@ namespace Auto.Web.Core
             get
             {
                 var s = HttpContext.Current.Session["auto.current_user"] as string;
-                if (s == null || s == string.Empty) return null;
+                if (string.IsNullOrEmpty(s)) return null;
 
                 return Helper.DeserializeFromJson(s);
             }

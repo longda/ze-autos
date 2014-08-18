@@ -4,7 +4,7 @@ auto.vehicles = {
     init: function () {
         $(".btn-add-vehicle").on("click", function () {
             var data = {
-                'Id': $("#hid-user-id").val(),
+                'Id': 0,
                 'Make.Id': $("#add-vehicle .make-drop-down").val(),
                 'Mpg': 0
             };
@@ -46,7 +46,7 @@ auto.vehicles = {
 
         });
 
-        $(".auto-save-vehicle").on("change keyup paste input",function () {
+        $("#vehicles").on("change keyup paste input", ".auto-save-vehicle", function () {
             var data = {
                 'Id': $(this).data("id"),
                 'Mpg': $(this).val()
@@ -74,7 +74,7 @@ auto.makes = {
         $(".btn-add-make").on("click", function () {
             var data = {
                 'Id': 0,
-                'Name': ""
+                'Name': "Car name"
             };
 
             $.ajax({
@@ -113,7 +113,7 @@ auto.makes = {
             });
         });
 
-        $(".auto-save-make").on("change keyup paste input", function () {
+        $("#makes").on("change keyup paste input", ".auto-save-make", function () {
             var data = {
                 'Id': $(this).data("id"),
                 'Name': $(this).val()
@@ -166,6 +166,8 @@ auto.login = {
                 auto.login.loginUser();
             }
         });
+
+        $("#username").focus();
     },
 };
 
@@ -179,11 +181,11 @@ auto.global = {
     },
 
     init: function () {
-        $(".reveal-close").on("click", function () {
+        $(".grid").on("click", ".reveal-close", function () {
             auto.global.closeModal();
         });
 
-        $(".btn-del-trigger").on("click", function () {
+        $(".grid").on("click", ".btn-del-trigger", function () {
             auto.global.openModal();
             $("#hid-delete-id").val($(this).data("id"));
         });

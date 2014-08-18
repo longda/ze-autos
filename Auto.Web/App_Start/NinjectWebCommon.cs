@@ -50,8 +50,8 @@ namespace Auto.Web.App_Start
                 // Note: Look how easy that is to swap out the fake services (which might not hit a real db) for real ones.  I bet we could 
                 // even do that with a config setting or db setting too (or not)!
 
-                //RegisterServices(kernel);
-                RegisterStubServices(kernel);
+                RegisterServices(kernel);
+                //RegisterStubServices(kernel);
                 return kernel;
             }
             catch
@@ -69,12 +69,14 @@ namespace Auto.Web.App_Start
         {
             kernel.Bind<IModelService>().To<ModelService>().InRequestScope();
             kernel.Bind<IAuthenticationService>().To<AuthenticationServiceStub>().InRequestScope();
+            kernel.Bind<IReportService>().To<ReportService>().InRequestScope();
         }
 
         private static void RegisterStubServices(IKernel kernel)
         {
             kernel.Bind<IModelService>().To<ModelServiceStub>().InRequestScope();
             kernel.Bind<IAuthenticationService>().To<AuthenticationServiceStub>().InRequestScope();
+            kernel.Bind<IReportService>().To<ReportService>().InRequestScope();
         }
     }
 }
