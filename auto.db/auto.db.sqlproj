@@ -71,5 +71,7 @@
     <Build Include="dbo\Stored Procedures\Vehicle_Save.sql" />
     <Build Include="dbo\Stored Procedures\Vehicle_Get.sql" />
     <Build Include="dbo\Stored Procedures\Report_Mileage.sql" />
+    <Build Include="dbo\Stored Procedures\Vehicle_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\Make_Delete.sql" />
   </ItemGroup>
 </Project>

@@ -90,7 +90,13 @@ namespace Auto.Core.Services.Concrete
 
         public bool DeleteVehicle(int vehicleId)
         {
-            throw new NotImplementedException();
+            using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["AUTO_CORE"].ConnectionString))
+            {
+                connection.Open();
+                var result = connection.Execute("Vehicle_Delete", new { Id = vehicleId }, commandType: CommandType.StoredProcedure);
+            }
+
+            return true;
         }
 
         public Make SaveMake(Make input)
@@ -141,7 +147,13 @@ namespace Auto.Core.Services.Concrete
 
         public bool DeleteMake(int makeId)
         {
-            throw new NotImplementedException();
+            using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["AUTO_CORE"].ConnectionString))
+            {
+                connection.Open();
+                var result = connection.Execute("Make_Delete", new { Id = makeId }, commandType: CommandType.StoredProcedure);
+            }
+
+            return true;
         }
     }
 }
