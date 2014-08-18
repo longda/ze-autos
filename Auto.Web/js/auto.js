@@ -46,13 +46,11 @@ auto.vehicles = {
 
         });
 
-        $("#vehicles").on("change keyup paste input", ".auto-save-vehicle", function () {
+        $("#vehicles").on("change", ".auto-save-vehicle", function () {
             var data = {
                 'Id': $(this).data("id"),
                 'Mpg': $(this).val()
             };
-
-            console.log("data: " + data);
 
             $.ajax({
                 type: 'post',
@@ -74,7 +72,7 @@ auto.makes = {
         $(".btn-add-make").on("click", function () {
             var data = {
                 'Id': 0,
-                'Name': "Car name"
+                'Name': "Make"
             };
 
             $.ajax({
@@ -113,10 +111,10 @@ auto.makes = {
             });
         });
 
-        $("#makes").on("change keyup paste input", ".auto-save-make", function () {
+        $("#makes").on("click", ".btn-save-make", function () {
             var data = {
                 'Id': $(this).data("id"),
-                'Name': $(this).val()
+                'Name': $("#" + $(this).data("id") + " .make-name").val()
             };
 
             $.ajax({

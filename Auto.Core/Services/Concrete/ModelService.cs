@@ -51,7 +51,6 @@ namespace Auto.Core.Services.Concrete
                 output.Make.Id = f.MakeId;
                 output.Mpg = f.Mpg;
                 output.UserId = f.UserId;
-                //output = result.First();
             }
 
             output.Make = GetMake(output.Make.Id);
@@ -66,9 +65,7 @@ namespace Auto.Core.Services.Concrete
             using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["AUTO_CORE"].ConnectionString))
             {
                 connection.Open();
-                //var result = connection.Query<Vehicle>("Vehicle_Get", new { Id = 0, UserId = userId }, commandType: CommandType.StoredProcedure);
                 var result = connection.Query("Vehicle_Get", new { Id = 0, UserId = userId }, commandType: CommandType.StoredProcedure);
-                //output.AddRange(result);
 
                 foreach (var i in result)
                 {
@@ -143,11 +140,6 @@ namespace Auto.Core.Services.Concrete
         }
 
         public bool DeleteMake(int makeId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public User GetUser(int id)
         {
             throw new NotImplementedException();
         }
