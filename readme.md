@@ -42,7 +42,7 @@ The candidate is responsible for designing the data model and choosing an approp
 2. Build and launch code from Visual Studio.
 3. Admin Login:
     * u: auto
-    * p: <enter anything>
+    * p: [enter anything]
 4. Standard Login (always the same user in this demo):
-    * u: <enter anything>
-    * p: <enter anything>
+    * u: [enter anything]
+    * p: [enter anything]
