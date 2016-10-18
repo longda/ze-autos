@@ -1,6 +1,6 @@
 <img src="http://i.giphy.com/tAhQVg4rBfKfK.gif" alt="ze autos: beep beep" />
 
-
+:blue_car: Create an application that allows end-users to track vehicles they own and the MPG they are currently experiencing on that vehicle.
 
 ## Problem Definition:
 
