@@ -1,10 +1,9 @@
 <img src="http://i.giphy.com/tAhQVg4rBfKfK.gif" alt="ze autos: beep beep" />
 
-:blue_car: Create an application that allows end-users to track vehicles they own and the MPG they are currently experiencing on that vehicle.
 
 ## Problem Definition:
 
-Create an application that allows end-users to track vehicles they own and the MPG they are currently experiencing on that vehicle.
+:blue_car: Create an application that allows end-users to track vehicles they own and the MPG they are currently experiencing on that vehicle.
 
 * Users must authenticate with the system and will be either a standard user or an administrator.
 * Standard users may perform the following operations 
